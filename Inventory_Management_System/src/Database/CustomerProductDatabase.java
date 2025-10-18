@@ -1,6 +1,8 @@
 package Database;
 
-import Admin.CustomerProduct;
+import java.time.LocalDate;
+
+import User.CustomerProduct;
 
 
 public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> {
@@ -9,10 +11,12 @@ public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> 
     super(filename);
 }
 
-
+    @Override
     public CustomerProduct createRecordFrom(String line){
         
-        return new CustomerProduct(line, line, null);
+         String[] fields = line.split(",");
+
+        return new CustomerProduct(fields[0], fields[1], LocalDate.parse(fields[2]));
     }
     
 

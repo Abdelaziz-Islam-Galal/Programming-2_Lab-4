@@ -1,6 +1,8 @@
-package product;
+package User;
 
-public class Product {
+import Database.ObjectInfo;
+
+public class Product implements ObjectInfo {
     // Constants for validation
     public static final double MIN_PRICE = 0.0;
     public static final int MIN_QUANTITY = 0;
