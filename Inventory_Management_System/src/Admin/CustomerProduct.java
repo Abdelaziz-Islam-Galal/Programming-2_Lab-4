@@ -1,7 +1,10 @@
+package Admin;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import Database.ObjectInfo;
 
-public class CustomerProduct
+public class CustomerProduct implements ObjectInfo
 {
     private String customerSSN;
     private String productID;
