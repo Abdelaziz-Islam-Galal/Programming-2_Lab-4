@@ -1,6 +1,8 @@
 package Admin;
 
-public class EmployeeUser {
+import Database.ObjectInfo;
+
+public class EmployeeUser implements ObjectInfo{
     private String employeeId;
     private String name;
     private String email;

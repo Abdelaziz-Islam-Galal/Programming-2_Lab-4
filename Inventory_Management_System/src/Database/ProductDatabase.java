@@ -1,6 +1,6 @@
 package Database;
 
 
-public class ProductDatabase extends DatabaseTemplate {
+//public class ProductDatabase extends DatabaseTemplate {}
     
-}
+
