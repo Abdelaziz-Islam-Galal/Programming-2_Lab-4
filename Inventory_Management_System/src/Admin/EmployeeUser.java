@@ -126,6 +126,7 @@ public class EmployeeUser implements ObjectInfo {
     }
 
     // methods:
+    @Override
     public String lineRepresentation() {
         if (isValidUser(this)) {
             return null;
@@ -133,7 +134,8 @@ public class EmployeeUser implements ObjectInfo {
 
         return (employeeId + "," + name + "," + email + "," + address + "," + phoneNumber);
     }
-
+    
+    @Override
     public String getSearchKey() {
         if (isValidUser(this)) {
             return null;
