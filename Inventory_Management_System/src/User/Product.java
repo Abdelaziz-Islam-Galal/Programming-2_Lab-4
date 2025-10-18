@@ -1,4 +1,4 @@
-package product;
+package User;
 
 import Database.ObjectInfo;
 

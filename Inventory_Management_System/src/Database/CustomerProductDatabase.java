@@ -2,7 +2,7 @@ package Database;
 
 import java.time.LocalDate;
 
-import Admin.CustomerProduct;
+import User.CustomerProduct;
 
 
 public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> {

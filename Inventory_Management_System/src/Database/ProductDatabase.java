@@ -1,7 +1,7 @@
 package Database;
 
 
-import product.Product;
+import User.Product;
 
 public class ProductDatabase extends DatabaseTemplate <Product> {
 
