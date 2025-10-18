@@ -1,8 +1,9 @@
 package Admin;
 
 import Database.ObjectInfo;
+// Validation;
 
-public class EmployeeUser implements ObjectInfo{
+public class EmployeeUser implements ObjectInfo {
     private String employeeId;
     private String name;
     private String email;
@@ -25,11 +26,8 @@ public class EmployeeUser implements ObjectInfo{
 
     // setters:
     public boolean setEmployeeId(String employeeId) {
-        if (employeeId == null) {
-            System.out.println("Invalid employee id; id not set");
-            return false;
-        } else if (employeeId.trim().isEmpty() || employeeId.matches(".*\\s.*")) {
-            System.out.println("Invalid employee id; id not set");
+        if (Validation.isValidString(employeeId) == false) {
+            System.out.println("Invalid employee ID; employee ID not set");
             return false;
         }
 
@@ -38,12 +36,8 @@ public class EmployeeUser implements ObjectInfo{
     }
 
     public boolean setName(String name) {
-        if (name == null) {
+        if (Validation.isValidString(name) == false) {
             System.out.println("Invalid name; name not set");
-            return false;
-        }
-        if (name.trim().isEmpty()) {
-            System.out.println("Invalid name; name not setd");
             return false;
         }
 
@@ -52,11 +46,7 @@ public class EmployeeUser implements ObjectInfo{
     }
 
     public boolean setEmail(String email) {
-        if (email == null) {
-            System.out.println("Invalid email; email not set");
-            return false;
-        }
-        if (email.trim().isEmpty() || !email.contains("@")) {
+        if (Validation.isValidString(email) == false) {
             System.out.println("Invalid email; email not set");
             return false;
         }
@@ -66,11 +56,7 @@ public class EmployeeUser implements ObjectInfo{
     }
 
     public boolean setAddress(String address) {
-        if (address == null) {
-            System.out.println("Invalid address; address not set");
-            return false;
-        }
-        if (address.trim().isEmpty()) {
+        if (Validation.isValidString(address) == false) {
             System.out.println("Invalid address; address not set");
             return false;
         }
@@ -80,11 +66,7 @@ public class EmployeeUser implements ObjectInfo{
     }
 
     public boolean setPhoneNumber(String phoneNumber) {
-        if (phoneNumber == null) {
-            System.out.println("Invalid phone number; phone number not set");
-            return false;
-        }
-        if (phoneNumber.trim().isEmpty() || !phoneNumber.matches("\\d{11}")) { // \\d{11} = have 11 numbers only
+        if (Validation.isValidString(phoneNumber) == false) {
             System.out.println("Invalid phone number; phone number not set");
             return false;
         }
