@@ -11,7 +11,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
     private ArrayList<T> records = new ArrayList<>();
     private String filename;
 
-    public DatabaseTemplate(String filename) { // Constructor
+    public DatabaseTemplate(String filename) {                 // Constructor
         if (Validation.isValidString(filename) == false) {
             System.out.println("Invalid filename; filename not set");
             throw new IllegalArgumentException("Invalid filename");
