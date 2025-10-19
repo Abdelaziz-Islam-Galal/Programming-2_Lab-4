@@ -117,6 +117,35 @@ public class EmployeeRole {
         }
 
         return product.getPrice();
+    }
 
+    public boolean applyPayment(String customerSSN, LocalDate purchaseDate) {
+        // since I have no productId, I will need to implement a search over the records
+        // instead of using getRecord
+        int size = customerProductDatabase.numberOfRecords();
+        CustomerProduct records[] = new CustomerProduct[size];
+        records = customerProductDatabase.returnAllRecords().toArray(records);
+        String key = customerSSN + "," + purchaseDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        boolean state = false;
+        for (int i = 0; i < size; i++) {
+            String recordKey = records[i].getCustomerSSN() + ","
+                    + records[i].getPurchaseDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+            if (key.equals(recordKey) && records[i].isPaid() == false) {
+                records[i].setPaid(true);
+                try {
+                    customerProductDatabase.saveToFile();
+                } catch (Exception e) {
+                    System.err.println("Error saving payment status to file: " + e.getMessage());
+                }
+                state = true;
+            }
+        }
+        if (state) {
+            return true;
+        } else {
+            System.out.println("RECORD (TO BE RETURNED) NOT FOUND!");
+            return false;
+        }
     }
 }
