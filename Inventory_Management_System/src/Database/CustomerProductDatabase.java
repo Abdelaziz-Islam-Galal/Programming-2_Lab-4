@@ -16,7 +16,7 @@ public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> 
         
          String[] fields = line.split(",");
 
-        return new CustomerProduct(fields[0], fields[1], LocalDate.parse(fields[2]));
+        return new CustomerProduct(fields[0], fields[1], LocalDate.parse(fields[2], DateTimeFormatter.ofPattern("dd-MM-yyyy")));
     }
     
 
