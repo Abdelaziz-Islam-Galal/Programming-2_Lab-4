@@ -126,6 +126,8 @@ public class EmployeeRole {
         CustomerProduct records[] = new CustomerProduct[size];
         records = customerProductDatabase.returnAllRecords().toArray(records);
         String key = customerSSN + "," + purchaseDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+
+        // any unpaid product will be marked as paid
         boolean state = false;
         for (int i = 0; i < size; i++) {
             String recordKey = records[i].getCustomerSSN() + ","
@@ -146,6 +148,20 @@ public class EmployeeRole {
         } else {
             System.out.println("RECORD (TO BE RETURNED) NOT FOUND!");
             return false;
+        }
+    }
+
+    public void logout() {
+        try {
+            productsDatabase.readFromFile();
+        } catch (Exception e) {
+            System.err.println("Error reading Products.txt: " + e.getMessage());
+        }
+
+        try {
+            customerProductDatabase.readFromFile();
+        } catch (Exception e) {
+            System.err.println("Error reading CustomerProducts.txt: " + e.getMessage());
         }
     }
 }
