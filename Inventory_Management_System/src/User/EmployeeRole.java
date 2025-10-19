@@ -1,5 +1,7 @@
 package User;
 
+import java.time.LocalDate;
+
 import Database.*;
 
 public class EmployeeRole {
@@ -41,11 +43,40 @@ public class EmployeeRole {
         return productsDatabase.returnAllRecords().toArray(products);
     }
 
-    public CustomerProduct[] getListOfPurchasingOperations(){
+    public CustomerProduct[] getListOfPurchasingOperations() {
         int size = customerProductDatabase.numberOfRecords();
 
         CustomerProduct[] customerProducts = new CustomerProduct[size];
-        return customerProductDatabase.returnAllRecords().toArray(customerProducts);    
+        return customerProductDatabase.returnAllRecords().toArray(customerProducts);
+    }
+
+    public boolean purchaseProduct(String customerSSN, String productID, LocalDate purchaseDate) {
+        if (productsDatabase.contains(productID)) {
+            Product product = productsDatabase.getRecord(productID); // return refrence
+            if (product.getQuantity() <= 0) {
+                return false;
+            }
+
+            CustomerProduct customerProduct = new CustomerProduct(customerSSN, productID, purchaseDate);
+            customerProductDatabase.insertRecord(customerProduct);
+            try {
+                customerProductDatabase.saveToFile();
+            } catch (Exception e) {
+                System.err.println("Error saving purchasing operation to file: " + e.getMessage());
+            }
+
+            product.setQuantity(product.getQuantity() - 1); // since reference is returned, then data changed will take
+                                                            // effect in the array
+            try {
+                productsDatabase.saveToFile();
+            } catch (Exception e) {
+                System.err.println("Error saving product to file after purchase: " + e.getMessage());
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
     
