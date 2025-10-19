@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import User.CustomerProduct;
 
-public class CustomerProductDatabase extends DatabaseTemplate<CustomerProduct> {
+public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> {
 
     public CustomerProductDatabase(String filename) {
         super(filename);
@@ -16,8 +16,11 @@ public class CustomerProductDatabase extends DatabaseTemplate<CustomerProduct> {
 
         String[] fields = line.split(",");
 
-        return new CustomerProduct(fields[0], fields[1],
+        CustomerProduct cp1 =  new CustomerProduct(fields[0], fields[1],
                 LocalDate.parse(fields[2], DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        cp1.setPaid(Boolean.parseBoolean(fields[3])); 
+        
+        return cp1;       
     }
 
 }

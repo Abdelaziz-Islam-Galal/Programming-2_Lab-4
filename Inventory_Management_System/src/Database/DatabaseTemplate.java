@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import MyUtilities.Validation;
 
-public abstract class DatabaseTemplate<T extends ObjectInfo> {
+public abstract class DatabaseTemplate <T extends ObjectInfo> {
 
   private ArrayList<T> records = new ArrayList<>();
   private String filename;
 
-  public DatabaseTemplate(String filename) { // Constructor
+  public DatabaseTemplate(String filename) { 
     if (Validation.isValidString(filename) == false) {
       System.out.println("Invalid filename; filename not set");
       throw new IllegalArgumentException("Invalid filename");
@@ -21,13 +21,13 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
     }
   }
 
-  public abstract T createRecordFrom(String line); // abstract method implementation needed !!
+  public abstract T createRecordFrom(String line); 
 
   public void readFromFile() throws IOException {
     BufferedReader br = new BufferedReader(new FileReader(this.filename));
     String line;
 
-    while ((line = br.readLine()) != null) { // done but depends on above abstract method
+    while ((line = br.readLine()) != null) { 
       T record = createRecordFrom(line);
       records.add(record);
     }
@@ -35,12 +35,12 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
   }
 
   public ArrayList<T> returnAllRecords() {
-    return records; // done
+    return records; 
   }
 
   public boolean contains(String key) {
 
-    for (int i = 0; i < records.size(); i++) { // done
+    for (int i = 0; i < records.size(); i++) { 
       if (key != null && key.equals(records.get(i).getSearchKey()))
         return true;
     }
@@ -49,7 +49,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
 
   public T getRecord(String key) {
 
-    for (int i = 0; i < records.size(); i++) { // DONE
+    for (int i = 0; i < records.size(); i++) { 
       if (key != null && key.equals(records.get(i).getSearchKey()))
         return records.get(i);
     }
@@ -59,7 +59,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
 
   public void insertRecord(T record) {
 
-    for (int i = 0; i < records.size(); i++) { // DONE
+    for (int i = 0; i < records.size(); i++) { 
       if (record != null && record.equals(records.get(i))) {
         System.out.println("RECORD (TO BE INSERTED) ALREADY EXISTS!");
         return;
@@ -70,7 +70,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
 
   public void deleteRecord(String key) {
 
-    for (int i = 0; i < records.size(); i++) { // DONE
+    for (int i = 0; i < records.size(); i++) { 
       if (key != null && key.equals(records.get(i).getSearchKey())) {
         records.remove(i);
         return;

@@ -60,10 +60,11 @@ public class CustomerProduct implements ObjectInfo {
         return (customerSSN + "," + productID + "," + purchaseDate.format(formatter));
     }
 
-    public static void main(String[] args) {
+   /*  public static void main(String[] args) {
         CustomerProduct c = new CustomerProduct("null", "P2568", LocalDate.of(2022, 2, 12));
         c.setPaid(true);
         System.out.println(c.lineRepresentation());
         System.out.println(c.getSearchKey());
-    }
+    }  
+        */
 }
