@@ -163,6 +163,11 @@ public class EmployeeRole {
         } catch (Exception e) {
             System.err.println("Error reading CustomerProducts.txt: " + e.getMessage());
         }
+        
+    }
+
+    public boolean checkDuplicate(String key){
+        return productsDatabase.contains(key);
     }
 
     // create a debug main method to test the class
