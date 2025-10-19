@@ -55,4 +55,8 @@ public class AdminRole {
             System.err.println("Error saving employee to file: " + e.getMessage());
         }
     }
+
+    public boolean checkDuplicate(String key){
+        return database.contains(key);
+    }
 }

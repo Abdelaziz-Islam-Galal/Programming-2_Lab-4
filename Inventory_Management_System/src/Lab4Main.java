@@ -3,6 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import Admin.AdminRole;
+//import Database.ProductDatabase;
 import User.EmployeeRole;
 
 public class Lab4Main {
@@ -53,8 +54,11 @@ public class Lab4Main {
                 case 1:
                     System.out.println("-------New Employee Info-------");
                     scan.nextLine();
+                    do{
                     System.out.print("Employee ID: ");
                     holdS[0] = scan.nextLine();
+                    }while (ar.checkDuplicate(holdS[0])); 
+                    //add method in employee role to check id not duplicated similar to contain
                     System.out.print("Name: ");
                     holdS[1] = scan.nextLine();   
                     System.out.print("E-mail: ");
@@ -137,8 +141,10 @@ public class Lab4Main {
                 case 1:
                     System.out.println("-------Add New Product-------");
                     scan.nextLine();
+                    do{
                     System.out.print("Product ID: ");
-                    holdS[0] = scan.nextLine();
+                    holdS[0] = scan.nextLine(); 
+                    }while (er.checkDuplicate(holdS[0])); 
                     System.out.print("Product Name: ");
                     holdS[1] = scan.nextLine();   
                     System.out.print("Manufacturer Name: ");
@@ -150,6 +156,7 @@ public class Lab4Main {
                     System.out.print("Price: ");
                     holdS[5] = scan.nextLine();
                     er.addProduct(holdS[0], holdS[1], holdS[2], holdS[3], Integer.parseInt(holdS[4]));
+                
                     
                     break; 
 
