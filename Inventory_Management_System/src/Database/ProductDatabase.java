@@ -2,7 +2,7 @@ package Database;
 
 import User.Product;
 
-public class ProductDatabase extends DatabaseTemplate<Product> {
+public class ProductDatabase extends DatabaseTemplate <Product> {
 
     public ProductDatabase(String filename) {
         super(filename);

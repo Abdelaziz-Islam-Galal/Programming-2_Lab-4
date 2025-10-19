@@ -5,5 +5,5 @@ public interface ObjectInfo {
 String lineRepresentation();
 String getSearchKey();
 // EmployeeUser, Product, CustomerProduct classes 
-// should implement interface (info)
+
 }
