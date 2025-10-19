@@ -92,7 +92,6 @@ public class EmployeeUser implements ObjectInfo {
         return phoneNumber;
     }
 
-    // ObjectInfo methods
     @Override
     public String lineRepresentation() {
         return employeeId + "," + name + "," + email + "," + address + "," + phoneNumber;
