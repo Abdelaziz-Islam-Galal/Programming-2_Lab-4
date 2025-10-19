@@ -1,8 +1,10 @@
 package User;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import Database.*;
+import MyUtilities.Validation;
 
 public class EmployeeRole {
     private ProductDatabase productsDatabase;
@@ -79,5 +81,42 @@ public class EmployeeRole {
         }
     }
 
-    
+    public double returnProduct(String customerSSN, String productID, LocalDate purchaseDate, LocalDate returnDate) {
+        // validations:
+        // variable values validation:
+        if (!Validation.isValidString(customerSSN)) {
+            throw new IllegalArgumentException("Invalid customer SSN.");
+        }
+        if (!Validation.isValidString(productID)) {
+            throw new IllegalArgumentException("Invalid product ID.");
+        }
+        if (purchaseDate == null) {
+            throw new IllegalArgumentException("Invalid purchase date.");
+        }
+        if (returnDate == null) {
+            throw new IllegalArgumentException("Invalid return date.");
+        }
+
+        // logical validations:
+        if (returnDate.isBefore(purchaseDate) || returnDate.isAfter(purchaseDate.plusDays(14))) {
+            return -1;
+        }
+        if (productsDatabase.contains(productID) == false) {
+            return -1;
+        }
+
+        Product product = productsDatabase.getRecord(productID);
+        product.setQuantity(product.getQuantity() + 1);
+
+        customerProductDatabase.deleteRecord(
+                customerSSN + "," + productID + "," + purchaseDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        try {
+            productsDatabase.saveToFile();
+        } catch (Exception e) {
+            System.err.println("Error saving product to file after purchase: " + e.getMessage());
+        }
+
+        return product.getPrice();
+
+    }
 }
