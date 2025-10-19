@@ -41,7 +41,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
   public boolean contains(String key) {
 
     for (int i = 0; i < records.size(); i++) { // done
-      if (key == records.get(i).getSearchKey())
+      if (key != null && key.equals(records.get(i).getSearchKey()))
         return true;
     }
     return false;
@@ -50,7 +50,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
   public T getRecord(String key) {
 
     for (int i = 0; i < records.size(); i++) { // DONE
-      if (key == records.get(i).getSearchKey())
+      if (key != null && key.equals(records.get(i).getSearchKey()))
         return records.get(i);
     }
     System.out.println("RECORD (TO BE RETURNED) NOT FOUND!");
@@ -60,7 +60,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
   public void insertRecord(T record) {
 
     for (int i = 0; i < records.size(); i++) { // DONE
-      if (record == records.get(i)) {
+      if (record != null && record.equals(records.get(i))) {
         System.out.println("RECORD (TO BE INSERTED) ALREADY EXISTS!");
         return;
       }
@@ -71,7 +71,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
   public void deleteRecord(String key) {
 
     for (int i = 0; i < records.size(); i++) { // DONE
-      if (key == records.get(i).getSearchKey()) {
+      if (key != null && key.equals(records.get(i).getSearchKey())) {
         records.remove(i);
         return;
       }
