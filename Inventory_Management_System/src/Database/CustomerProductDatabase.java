@@ -1,27 +1,23 @@
 package Database;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import User.CustomerProduct;
 
+public class CustomerProductDatabase extends DatabaseTemplate<CustomerProduct> {
 
-public class CustomerProductDatabase extends DatabaseTemplate <CustomerProduct> {
-
-    public CustomerProductDatabase(String filename){
-    super(filename);
-}
+    public CustomerProductDatabase(String filename) {
+        super(filename);
+    }
 
     @Override
-    public CustomerProduct createRecordFrom(String line){
-        
-         String[] fields = line.split(",");
+    public CustomerProduct createRecordFrom(String line) {
 
-        return new CustomerProduct(fields[0], fields[1], LocalDate.parse(fields[2], DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        String[] fields = line.split(",");
+
+        return new CustomerProduct(fields[0], fields[1],
+                LocalDate.parse(fields[2], DateTimeFormatter.ofPattern("dd-MM-yyyy")));
     }
-    
-
-   
 
 }
-    
-
