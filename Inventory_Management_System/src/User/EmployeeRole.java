@@ -22,7 +22,8 @@ public class EmployeeRole {
         }
     }
 
-    public void addProduct(String productID, String productName, String manufacturerName, String supplierName, int quantity) {
+    public void addProduct(String productID, String productName, String manufacturerName, String supplierName,
+            int quantity) {
         Product product = new Product(productID, productName, manufacturerName, supplierName, quantity, 0.0f);
         productsDatabase.insertRecord(product);
 
@@ -33,6 +34,19 @@ public class EmployeeRole {
         }
     }
 
-    public Product[] getListOfProducts(){
+    public Product[] getListOfProducts() {
+        int size = productsDatabase.numberOfRecords();
+
+        Product[] products = new Product[size];
+        return productsDatabase.returnAllRecords().toArray(products);
     }
+
+    public CustomerProduct[] getListOfPurchasingOperations(){
+        int size = customerProductDatabase.numberOfRecords();
+
+        CustomerProduct[] customerProducts = new CustomerProduct[size];
+        return customerProductDatabase.returnAllRecords().toArray(customerProducts);    
+    }
+
+    
 }
