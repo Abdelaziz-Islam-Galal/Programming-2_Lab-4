@@ -154,13 +154,13 @@ public class EmployeeRole {
 
     public void logout() {
         try {
-            productsDatabase.readFromFile();
+            productsDatabase.saveToFile();
         } catch (Exception e) {
             System.err.println("Error reading Products.txt: " + e.getMessage());
         }
 
         try {
-            customerProductDatabase.readFromFile();
+            customerProductDatabase.saveToFile();
         } catch (Exception e) {
             System.err.println("Error reading CustomerProducts.txt: " + e.getMessage());
         }
