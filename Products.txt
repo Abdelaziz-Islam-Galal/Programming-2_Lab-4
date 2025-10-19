@@ -1,0 +1,2 @@
+P1001,Laptop,Dell,TechSupplier,10,0.0
+P1002,Smartphone,Samsung,MobileWorld,20,0.0
