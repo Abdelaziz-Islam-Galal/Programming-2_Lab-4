@@ -1,3 +1,4 @@
-P1001,Laptop,Dell,TechSupplier,10,222
-P1002,Smartphone,Samsung,MobileWorld,20,444
-P1003,Mobile,Apple,TechSupplier,2,1500
+P1001,Laptop,Dell,TechSupplier,11,222.0
+P1002,Smartphone,Samsung,MobileWorld,20,444.0
+P1003,Mobile,Apple,TechSupplier,2,1500.0
+P1289,Hair Cream,Fatika,AboMohamed,20,0.0

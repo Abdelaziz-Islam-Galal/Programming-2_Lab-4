@@ -52,6 +52,7 @@ public class Lab4Main {
 
                 case 1:
                     System.out.println("-------New Employee Info-------");
+                    scan.nextLine();
                     System.out.print("Employee ID: ");
                     holdS[0] = scan.nextLine();
                     System.out.print("Name: ");
@@ -68,7 +69,7 @@ public class Lab4Main {
                 case 2:
                     System.out.println("-------Employees List-------");
                     ar.getListOfEmployees();
-                    System.out.println(ar.getListOfEmployees().length + "Employees");
+                    System.out.println(ar.getListOfEmployees().length + " Employees");
                     for(int i = 0; i < ar.getListOfEmployees().length; i++)
                     {
                         holdS = ar.getListOfEmployees()[i].lineRepresentation().split(",");
@@ -80,10 +81,11 @@ public class Lab4Main {
 
                 case 3:
                     System.out.println("-------Remove Employee-------");
+                    scan.nextLine();
                     System.out.print("Employee ID: ");
                     holdS[0] = scan.nextLine();
                     ar.removeEmployee(holdS[0]);
-                    System.out.println("Employee " + holdS[0] + "Removed Successfully!");
+                    System.out.println("Employee " + holdS[0] + " Removed Successfully!");
                     break;
 
                 case 4:
@@ -134,6 +136,7 @@ public class Lab4Main {
 
                 case 1:
                     System.out.println("-------Add New Product-------");
+                    scan.nextLine();
                     System.out.print("Product ID: ");
                     holdS[0] = scan.nextLine();
                     System.out.print("Product Name: ");
@@ -144,13 +147,16 @@ public class Lab4Main {
                     holdS[3] = scan.nextLine();
                     System.out.print("Qunatity: ");
                     holdS[4] = scan.nextLine();
+                    System.out.print("Price: ");
+                    holdS[5] = scan.nextLine();
                     er.addProduct(holdS[0], holdS[1], holdS[2], holdS[3], Integer.parseInt(holdS[4]));
+                    
                     break; 
 
                 case 2:
                     System.out.println("-------Products List-------");
                     er.getListOfProducts();
-                    System.out.println(er.getListOfProducts().length + "Products");
+                    System.out.println(er.getListOfProducts().length + " Products");
                     for(int i = 0; i < er.getListOfProducts().length; i++)
                     {
                         holdS = er.getListOfProducts()[i].lineRepresentation().split(",");
@@ -164,7 +170,7 @@ public class Lab4Main {
                 case 3:
                     System.out.println("-------Purchasing Operations-------");
                     er.getListOfPurchasingOperations();
-                    System.out.println(er.getListOfPurchasingOperations().length + "Operations");
+                    System.out.println(er.getListOfPurchasingOperations().length + " Operations");
                     for(int i = 0; i < er.getListOfPurchasingOperations().length; i++)
                     {
                         holdS = er.getListOfPurchasingOperations()[i].lineRepresentation().split(",");
@@ -176,6 +182,7 @@ public class Lab4Main {
 
                 case 4:
                     System.out.println("-------Purchase Product-------");
+                    scan.nextLine();
                     System.out.print("Customer SSN: ");
                     holdS[0] = scan.nextLine();
                     System.out.print("Product ID: ");
@@ -192,7 +199,8 @@ public class Lab4Main {
                     break;
 
                 case 5:
-                    System.out.println("-------Return Product-------"); 
+                    System.out.println("-------Return Product-------");
+                    scan.nextLine();
                     System.out.print("Customer SSN: ");
                     holdS[0] = scan.nextLine();
                     System.out.print("Product ID: ");
@@ -210,6 +218,7 @@ public class Lab4Main {
 
                 case 6:
                     System.out.println("-------Apply payment-------");
+                    scan.nextLine();
                     System.out.print("Customer SSN: ");
                     holdS[0] = scan.nextLine();
                     System.out.print("Purchase Date: ");
