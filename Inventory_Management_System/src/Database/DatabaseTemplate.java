@@ -89,4 +89,7 @@ public abstract class DatabaseTemplate<T extends ObjectInfo> {
     fw.close();
   }
 
+  public int numberOfRecords() {
+    return records.size();
+  }
 }
