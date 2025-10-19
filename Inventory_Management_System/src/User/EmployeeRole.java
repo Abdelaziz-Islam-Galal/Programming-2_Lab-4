@@ -164,4 +164,36 @@ public class EmployeeRole {
             System.err.println("Error reading CustomerProducts.txt: " + e.getMessage());
         }
     }
+
+    // create a debug main method to test the class
+    public static void main(String[] args) {
+        EmployeeRole er = new EmployeeRole();
+
+        er.addProduct("P1001", "Laptop", "Dell", "TechSupplier", 10);
+        er.addProduct("P1002", "Smartphone", "Samsung", "MobileWorld", 20);
+
+        Product[] products = er.getListOfProducts();
+        System.out.println("List of Products:");
+        for (Product p : products) {
+            System.out.println(p.lineRepresentation());
+        }
+
+        boolean purchaseStatus = er.purchaseProduct("123-45-6789", "P1001", LocalDate.of(2024, 6, 1));
+        System.out.println("Purchase Status: " + purchaseStatus);
+
+        CustomerProduct[] customerProducts = er.getListOfPurchasingOperations();
+        System.out.println("List of Purchasing Operations:");
+        for (CustomerProduct cp : customerProducts) {
+            System.out.println(cp.lineRepresentation());
+        }
+
+        double returnAmount = er.returnProduct("123-45-6789", "P1001", LocalDate.of(2024, 6, 1),
+                LocalDate.of(2024, 6, 10));
+        System.out.println("Return Amount: " + returnAmount);
+
+        boolean paymentStatus = er.applyPayment("123-45-6789", LocalDate.of(2024, 6, 1));
+        System.out.println("Payment Status: " + paymentStatus);
+
+        er.logout();
+    }
 }
