@@ -112,6 +112,7 @@ public class EmployeeRole {
                 customerSSN + "," + productID + "," + purchaseDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
         try {
             productsDatabase.saveToFile();
+            customerProductDatabase.saveToFile();
         } catch (Exception e) {
             System.err.println("Error saving product to file after purchase: " + e.getMessage());
         }
