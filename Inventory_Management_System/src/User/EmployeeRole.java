@@ -153,16 +153,16 @@ public class EmployeeRole {
     }
 
     public void setProductPrice(String productID, float price) {
-    Product product = productsDatabase.getRecord(productID);
-    if (product != null) {
-        product.setPrice(price);
-        try {
-            productsDatabase.saveToFile();
-        } catch (Exception e) {
-            System.err.println("Error saving price to file: " + e.getMessage());
+        Product product = productsDatabase.getRecord(productID);
+        if (product != null) {
+            product.setPrice(price);
+            try {
+                productsDatabase.saveToFile();
+            } catch (Exception e) {
+                System.err.println("Error saving price to file: " + e.getMessage());
+            }
         }
     }
-}
 
     public void logout() {
         try {
@@ -176,14 +176,13 @@ public class EmployeeRole {
         } catch (Exception e) {
             System.err.println("Error reading CustomerProducts.txt: " + e.getMessage());
         }
-        
+
     }
 
-    public boolean checkDuplicate(String key){
+    public boolean checkDuplicate(String key) {
         return productsDatabase.contains(key);
     }
 
-    // create a debug main method to test the class
     public static void main(String[] args) {
         EmployeeRole er = new EmployeeRole();
 

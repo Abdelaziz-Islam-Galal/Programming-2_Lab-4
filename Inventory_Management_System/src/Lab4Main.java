@@ -45,8 +45,8 @@ public class Lab4Main {
                     
                 } catch (InputMismatchException e) {
                     System.out.println("Error: Please enter a valid number (0, 1, or 2)");
-                    scan.nextLine(); // Clear invalid input
-                    choice = -1; // Force re-entry
+                    scan.nextLine();
+                    choice = -1;
                 }
             } while (choice != 1 && choice != 2);
 
@@ -56,7 +56,7 @@ public class Lab4Main {
                 System.out.println("|   Welcome, Admin!    |");
                 System.out.println("+----------------------+");
                 
-                // Create AdminRole ONCE outside loop to prevent data loss on crash
+                // AdminRole is done ONCE outside loop to prevent data loss on crash
                 AdminRole ar = new AdminRole();
                 
                 adminloop:

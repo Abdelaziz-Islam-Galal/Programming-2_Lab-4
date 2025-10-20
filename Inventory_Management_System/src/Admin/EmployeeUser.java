@@ -10,21 +10,21 @@ public class EmployeeUser implements ObjectInfo {
     private String address;
     private String phoneNumber;
 
-    public EmployeeUser(String employeeId, String name, String email, 
-                        String address, String phoneNumber) {
+    public EmployeeUser(String employeeId, String name, String email,
+            String address, String phoneNumber) {
         if (!Validation.isValidString(employeeId)) {
             throw new IllegalArgumentException("Invalid employee ID");
         }
         if (!Validation.isValidString(name)) {
             throw new IllegalArgumentException("Invalid name");
         }
-        if (!Validation.isValidString(email)) {
+        if (!Validation.isValidEmail(email)) {
             throw new IllegalArgumentException("Invalid email");
         }
         if (!Validation.isValidString(address)) {
             throw new IllegalArgumentException("Invalid address");
         }
-        if (!Validation.isValidString(phoneNumber)) {
+        if (!Validation.isValidPhoneNumber(phoneNumber)) {
             throw new IllegalArgumentException("Invalid phone number");
         }
 
@@ -96,7 +96,7 @@ public class EmployeeUser implements ObjectInfo {
     public String lineRepresentation() {
         return employeeId + "," + name + "," + email + "," + address + "," + phoneNumber;
     }
-    
+
     @Override
     public String getSearchKey() {
         return employeeId;
