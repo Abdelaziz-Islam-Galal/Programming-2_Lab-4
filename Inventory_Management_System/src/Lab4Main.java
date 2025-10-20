@@ -50,7 +50,7 @@ public class Lab4Main {
                 }
             } while (choice != 1 && choice != 2);
 
-            // ADMIN SECTION
+           
             if (choice == 1) {
                 System.out.println("+----------------------+");
                 System.out.println("|   Welcome, Admin!    |");
