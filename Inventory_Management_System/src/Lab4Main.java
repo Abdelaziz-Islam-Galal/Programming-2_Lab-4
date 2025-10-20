@@ -165,7 +165,7 @@ public class Lab4Main {
                     System.out.print("Price: ");
                     holdS[5] = scan.nextLine();
                     er.addProduct(holdS[0], holdS[1], holdS[2], holdS[3], Integer.parseInt(holdS[4]));
-                //setprice
+                    er.setProductPrice(holdS[0], Float.parseFloat(holdS[5]));
                     System.out.println("Product Added Successfully!");
                     break; 
 

@@ -152,6 +152,18 @@ public class EmployeeRole {
         }
     }
 
+    public void setProductPrice(String productID, float price) {
+    Product product = productsDatabase.getRecord(productID);
+    if (product != null) {
+        product.setPrice(price);
+        try {
+            productsDatabase.saveToFile();
+        } catch (Exception e) {
+            System.err.println("Error saving price to file: " + e.getMessage());
+        }
+    }
+}
+
     public void logout() {
         try {
             productsDatabase.saveToFile();
