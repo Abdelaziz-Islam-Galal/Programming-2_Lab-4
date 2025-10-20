@@ -183,7 +183,6 @@ public class EmployeeRole {
         return productsDatabase.contains(key);
     }
 
-    // create a debug main method to test the class
     public static void main(String[] args) {
         EmployeeRole er = new EmployeeRole();
 

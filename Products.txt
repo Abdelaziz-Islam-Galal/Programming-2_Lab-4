@@ -4,3 +4,4 @@ P1003,Mobile,Apple,TechSupplier,2,1500.0
 P1289,Hair Cream,Fatika,AboMohamed,20,0.0
 P1234,Calculator,Casio,UmAli,100,50.0
 P5555,555 TIMER,IC,MAKERS,39,15.0
+PSJ1563OV,2lgedeid,7ag Mohamed lel sena3at 2l gedeida,Om Ahmed lel 2sreirad wa 2l tasdeir,17,19.0
