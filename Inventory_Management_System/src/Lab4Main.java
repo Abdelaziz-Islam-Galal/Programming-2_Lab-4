@@ -5,7 +5,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Admin.AdminRole;
+import Admin.EmployeeUser;
 import User.EmployeeRole;
+import User.Product;
+import User.CustomerProduct;
 
 public class Lab4Main {
     
@@ -53,9 +56,7 @@ public class Lab4Main {
                 System.out.println("|   Welcome, Admin!    |");
                 System.out.println("+----------------------+");
                 
-                /*  Create AdminRole ONCE outside loop (                                            كان كل شوية بيعمل 
-                                                         جديد ودا كان بيخرب عملية حفظ الملف لو حصل كراش لأي سبب  admin role )
-                */
+                // Create AdminRole ONCE outside loop to prevent data loss on crash
                 AdminRole ar = new AdminRole();
                 
                 adminloop:
@@ -262,7 +263,7 @@ public class Lab4Main {
                                 }
                             } while (!validQuantity);
                             
-                            // Get Price with validation هin the same exact way
+                            // Get Price with validation in the same exact way
                             boolean validPrice = false;
                             do {
                                 try {
